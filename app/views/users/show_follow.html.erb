@@ -1,0 +1,14 @@
+<h2><%= @user.name %>, <%= @user.email %></h2>
+<div><%= render 'shared/stats' %></div>
+<span><%= link_to "Home", root_url %></span> |
+<span><%= link_to "All users", users_path %></span> | 
+<span><%= link_to "Write entry", root_url %></span> 
+
+<h3><%= @title %></h3>
+<% if @users.any? %>
+  	<ul class="users follow">
+        <%= render @users %>
+    </ul>
+    <%= will_paginate %>
+<% end %>
+	

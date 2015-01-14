@@ -1,0 +1,35 @@
+<h3><span class = "user"><%= @entry.user.name %></span> posted </h3>
+
+<h4><span><%= link_to "All posts", entries_path %></span> |
+<span><%= link_to "Home", root_url %></span>
+</h4>
+
+<p>
+  <strong>Title:</strong>
+  <%= @entry.title %>
+</p>
+ 
+<p>
+  <strong>body:</strong>
+  <%= @entry.body %>
+</p>
+<h2>Comments</h2>
+<% @entry.comments.each do |comment| %>
+  <p>
+    <strong><%= User.find(comment.user_id).name %>:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+<h3>Add a comment:</h3>
+<%= form_for([@entry, @entry.comments.build]) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back', entries_path %> |
+<%= link_to 'Edit', edit_entry_path(@entry) %>

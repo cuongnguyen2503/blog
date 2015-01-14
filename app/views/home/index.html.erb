@@ -1,0 +1,25 @@
+
+	<% if logged_in? %>
+	  <h4>Logged in as: <%= current_user.email %></h4>
+	  <div>
+	  	<%= render 'shared/stats' %>
+	  </div>
+	  <%= link_to "Profile", current_user %> |
+	  <%= link_to "Edit profile", edit_user_path(current_user) %> |
+	  <%= link_to "Logout", logout_path, method: :delete %> | 
+	  <%= link_to "All users", users_path %> <br />
+
+	  <h3> Write entry </h3>
+	  <%= render 'shared/entry_form' %>
+
+	  <h3> Entries </h3>
+	  <%= render 'shared/feed' %>
+	<% else %>
+	  <h2> Home page </h2>
+	  <%= link_to "Sign up", signup_path %> |
+	  <%= link_to "Login", login_path %>
+		<h2> Entries </h2>
+		<%= render 'shared/feed' %>	  
+	<% end %>
+
+

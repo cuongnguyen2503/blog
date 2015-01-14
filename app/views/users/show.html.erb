@@ -1,0 +1,14 @@
+
+<h2><%= @user.name %>, <%= @user.email %> <%= render 'follow_form' if logged_in? %>  </h2>
+<div><%= render 'shared/stats' %></div>
+<span><%= link_to "Home", root_url %></span> |
+<span><%= link_to "All users", users_path %></span> | 
+<span><%= link_to "Write entry", root_url %></span> 
+	       
+<% if @user.entries.any? %>
+	<h3><%= @user.name %> Have (<%= @user.entries.count %>) entries </h3>
+	<ol>
+	  <%= render @entries %>
+	</ol>
+	<%= will_paginate @entries %>
+<% end %>

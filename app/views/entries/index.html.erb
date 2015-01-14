@@ -1,0 +1,6 @@
+<h1>All entries </h1>
+	<span><%= link_to "Home", root_url %></span> | 
+	<span><%= link_to "Write entry", root_url %></span>
+<%= will_paginate %>
+
+<%= render @entries %>

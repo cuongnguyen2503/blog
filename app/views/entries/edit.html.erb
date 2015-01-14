@@ -1,0 +1,16 @@
+<h1> Edit post </h1>
+
+<div class = "form-for">
+	<%= form_for(@entry) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<div><%= f.label :title %>
+		<%= f.text_field :title %></div>
+
+	  	<div><%= f.label :body %>
+	  	<%= f.text_field :body %></div>
+
+	  	<div><%= f.submit "Save changes" %></div>
+
+	<% end %>
+</div>

@@ -1,0 +1,17 @@
+<h1>All users</h1>
+	<span><%= link_to "Home", root_url %></span> | 
+	<span><%= link_to "Write entry", root_url %></span>
+<%= will_paginate %>
+
+<ul class = "users">
+	<% @users.each do |user| %>
+		<li>
+		  <%= link_to user.name, user %> | <%= user.email %>
+		  <% if current_user.admin? && !current_user?(user) %>
+    		| <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  		<% end %>
+  
+	  </li>
+	<% end %>
+</ul>

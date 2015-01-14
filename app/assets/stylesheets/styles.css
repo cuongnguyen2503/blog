@@ -1,0 +1,17 @@
+.title {
+	font-weight: 700;
+	color: green;
+}
+
+.timestamp {
+	color: blue;
+}
+
+.user {
+	font-weight: 700;
+	color: blue;
+}
+
+a:hover {
+	color: red;
+}
